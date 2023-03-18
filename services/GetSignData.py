@@ -3,7 +3,7 @@ import numpy as np
 import mediapipe as mp
 import cv2
 
-checkpoint_path = "models\\Checkpoints"
+checkpoint_path = "services\\Checkpoints"
 model = tf.keras.models.load_model(checkpoint_path +"\\no_face_with_aug.h5")
 
 words = np.array(["book","drink","computer","before","chair","go","clothes","who","candy","cousin","deaf","fine","help","no","thin"])

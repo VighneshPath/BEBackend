@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "86a12076-895c-47ef-9bc8-15cfb5a9d94a",
+		"name": "BEProj",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22091340"
+	},
+	"item": [
+		{
+			"name": "Get text from gesture",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/nerfl/Downloads/archive/test.mp4"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/uploadfile/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"uploadfile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get video from text",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "text",
+							"value": "hello",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/get-video/hello",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"get-video",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
