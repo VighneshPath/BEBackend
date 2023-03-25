@@ -3,9 +3,10 @@
 ## To run
 
 ```shell
-pip install -r requirements.txt
+docker build --tag python-docker .
+
 ```
 
 ```shell
-uvicorn main:app --reload
+docker run --publish 8000:8000 -v PATH_TO_ARCHIVE_IN_LOCAL:/archive python-docker
 ```

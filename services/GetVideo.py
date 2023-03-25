@@ -2,8 +2,8 @@ import json
 import cv2
 import os
 
-JSON_PATH = "C:/Users/nerfl/Downloads/archive/WLASL_v0.3.json"
-VIDEOS_PATH = f"C:/Users/nerfl/Downloads/archive/videos/"
+JSON_PATH = "/archive/WLASL_v0.3.json"
+VIDEOS_PATH = f"/archive/videos/"
 
 with open(JSON_PATH) as f:
     data = json.loads(f.read())
