@@ -6,6 +6,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from services.GetSignData import predict_class_for_video
 from services.GetVideo import get_video
+from fastapi import HTTPException
+
 
 origins = [
     "http://localhost:3000",
@@ -38,6 +40,6 @@ async def create_upload_file(file: UploadFile = File()):
 async def get_video_from_text(text):
     vids = get_video(text.strip().lower())
     if(vids == []):
-        return {"error": "word doesn't exist"}
+        raise HTTPException(status_code=400, detail= "word doesn't exist")
     
     return FileResponse(vids[0])
