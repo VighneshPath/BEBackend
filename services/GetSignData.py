@@ -4,7 +4,7 @@ import mediapipe as mp
 import cv2
 
 checkpoint_path = "services/Checkpoints"
-model = tf.keras.models.load_model(checkpoint_path +"/no_face_with_aug.h5")
+# model = tf.keras.models.load_model(checkpoint_path +"/no_face_with_aug.h5")
 
 words = np.array(["book","drink","computer","before","chair","go","clothes","who","candy","cousin","deaf","fine","help","no","thin"])
 
@@ -29,12 +29,21 @@ def extract_keypoints(results):
     #return np.concatenate([pose, face, lh, rh])
     return np.concatenate([pose, lh, rh])
 
-def predict_class_for_video(video_location):
+def predict_class_for_video(video_location,lang):
     sequence = []
     #sentence = []
     predictions = {}
     #final_word = ""
     #threshold = 0.95
+
+    model_loc = {
+        "ISL": "/isl_no_face_with_aug1.h5",
+        "ASL": "/no_face_with_aug.h5"
+    }
+
+
+    model = tf.keras.models.load_model(checkpoint_path +model_loc[lang])
+
     
     cap = cv2.VideoCapture(video_location)
     cur_len = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
